@@ -23,15 +23,13 @@ tags: ["C语言,Base64,输出,buffer,大小"]
 	* 根据编码后的字符串计算编码前字符串的长度（补位后的）
 	*/
 	int getInputLen(unsigned  char * input) {
-		unsigned char *p =input;
-		int count=0;
-		while(*p!='\0') {
-		if(*p!='\n') {//过滤\n
-		count++;
-		}
-		p++;
-		}
-		return count*6/8;
+	    unsigned char *p =input;
+	    int count=0;
+	    while(*p!='\0' && (*p!='\n')) {//过滤\n
+	        count++;
+	        p++;
+	    }
+	    return count*6/8;
 	}
 
 ####三、编码中有\n字符的情况
