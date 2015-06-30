@@ -25,7 +25,7 @@ tags: ["C语言,Base64,输出,buffer,大小"]
 	int getInputLen(unsigned  char * input) {
 	    unsigned char *p =input;
 	    int count=0;
-	    while(*p!='\0' && (*p!='\n')) {//过滤\n
+	    while(*p!='\0' && *p!='\n') {//过滤\n
 	        count++;
 	        p++;
 	    }
