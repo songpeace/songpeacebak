@@ -45,4 +45,5 @@ System.out.println("result Len:"+result.length());//实际的result长度发现�
 result=result.replaceAll("\n", "");//因为它附加了\n字符，需要滤\n字符
 System.out.println("real result Len:"+result.length());//输出1144，这就对了！
 ~~~
+
 （字符串）
