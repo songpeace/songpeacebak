@@ -37,7 +37,7 @@ tags: ["C语言,Base64,输出,buffer,大小"]
 ####三、编码中有\n字符的情况
 JAVA base64的某些实现版本，编码后的字符串中可能带有"\n"字符（方便输出时查看），getOutputLen就不再准确了，需要过滤掉"\n"字符。
 
-	System.out.println("getOutputLen:"+getOutputLen(input));//根据原始输入字符串计算编码后字符串的长度应该是1144长度
+	System.out.println("getOutputLen:"+getOutputLen(input));//根据原始输入字符串计算编码后字符串的长度为1144
 	String result = Base64.encodeToString(input.getBytes("UTF-8"), 0);//对字符串按Base64编码
 	System.out.println("result Len:"+result.length());//实际的result长度发现为1160
 	result=result.replaceAll("\n", "");//因为它附加了\n字符，需要滤\n字符
