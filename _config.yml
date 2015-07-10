@@ -11,11 +11,11 @@ paginate_path: "page:num"
 
 # presonal config
 domain: www.panxw.com
-title: Panxw's Blog
+title: 首页
 description: Android, Cocos2d, Java Web, Linux, reading...
 author: Steven Pan
-email: winfirm#163.com
-github: panxw
+email: songworld#126.com
+github: songpeace
 
 config:
   js_dir:
