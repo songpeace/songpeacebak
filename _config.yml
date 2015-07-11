@@ -10,7 +10,7 @@ paginate: 8
 paginate_path: "page:num"
 
 # presonal config
-domain: www.panxw.com
+domain: www.songworld.com
 title: 首页
 description: Android, Cocos2d, Java Web, Linux, reading...
 author: Steven Pan
