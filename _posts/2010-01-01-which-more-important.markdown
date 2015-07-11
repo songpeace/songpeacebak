@@ -32,3 +32,9 @@ summary: "对于人生而言，什么更重要？每个人也许都有不同的�
 把别人当成自己（同情），<br/>
 把别人当成别人（尊重），<br/>
 把自己当成自己（走自己的路）。<br/>
+<!-- UJian Button BEGIN -->
+<div class="ujian-hook"></div>
+<script type="text/javascript">var ujian_config = {num:6,picSize:84,textHeight:45};</script>
+<script type="text/javascript" src="http://v1.ujian.cc/code/ujian.js?uid=2045533"></script>
+<a href="http://www.ujian.cc" style="border:0;"><img src="http://img.ujian.cc/pixel.png" alt="友荐云推荐" style="border:0;padding:0;margin:0;" /></a>
+<!-- UJian Button END -->
