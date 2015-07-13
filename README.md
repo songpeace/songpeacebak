@@ -20,6 +20,6 @@ http://songpeace.github.io
 如需查看或管理网站统计、评论或广告，请自行注册帐号并修改_includes目录下相关文件。  
 
 ####联系方式
-联系方式：email(songworld@163.com)  
+联系方式：email(songworld@126.com)  
 
 
