@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2015-07-14-BLE-Link-Layer</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><p><strong>以下文中所有数据格式为小端模式，即最左侧为LSB，最右侧为MSB</strong></p>
+
+
+
+<h3 id="设备地址device-address">设备地址DEVICE　ADDRESS</h3>
+
+<p>每个设备都有地址，地址长6字节，分为公共地址（ public device address）和随机地址（random device address）两类。设备可以同时拥有这两种类型的地址。</p>
+
+
+
+<h2 id="空中接口">空中接口</h2>
+
+
+
+<h3 id="空中数据包格式">空中数据包格式</h3>
+
+<table>
+<thead>
+<tr>
+  <th>Preamble</th>
+  <th>Access Address</th>
+  <th>PDU</th>
+  <th>CRC</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>1字节</td>
+  <td>4字节</td>
+  <td>2-39字节</td>
+  <td>3字节</td>
+</tr>
+</tbody></table>
+
+
+
+
+<h4 id="前导码preamble">前导码（Preamble）</h4>
+
+<p>LL层所有数据包都有一个8bit前导码，接收机用此码做同步、符号定时估计、自动增益控制。 <br>
+<strong>广播信道</strong>包前导码为10101010b 。 <br>
+<strong>数据信道</strong>包前导码有两种，如果接入地址（Access <br>
+Address）的LSB为1，则前导码为01010101b。否则前导码为10101010b</p>
+
+
+
+<h4 id="接入地址access-address">接入地址（Access Address）</h4>
+
+<p>广播信道接入地址是规定好的，地址为10001110100010011011111011010110b (0x8E89BED6) 。 <br>
+对数据信道而言，设备间的每次连接都就使用不同的接入地址。在 Initiating State状态时，设备就产生一个32bit数做为接入地址。此地址包含在CONNECT_REQ命令的数据中。</p>
+
+
+
+<h4 id="数据单元pdu">数据单元（PDU）</h4>
+
+<p>数据单元分两种，广播信道PDU和数据信道PDU。</p>
+
+
+
+<h3 id="广播信道pdu">广播信道PDU</h3>
+
+<p>其格式如下：</p>
+
+<table>
+<thead>
+<tr>
+  <th>Header</th>
+  <th>Payload</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>2字节</td>
+  <td>Header中说明的长度</td>
+</tr>
+</tbody></table>
+
+
+<p>广播信道PDU的Header格式如下：</p>
+
+<table>
+<thead>
+<tr>
+  <th>PDU Type</th>
+  <th>RFU</th>
+  <th>TxAdd</th>
+  <th>RxAdd</th>
+  <th>Length</th>
+  <th>RFU</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>4 bits</td>
+  <td>2 bits</td>
+  <td>1 bit</td>
+  <td>1 bit</td>
+  <td>6 bits</td>
+  <td>2 bits</td>
+</tr>
+</tbody></table>
+
+
+<p><strong>PDU Type</strong> 分以下几种类型：</p>
+
+<table>
+<thead>
+<tr>
+  <th>PDU Type<br> b<sub> 3 </sub>b<sub> 2</sub> b <sub>1</sub> b <sub>0</sub></th>
+  <th>Packet Name</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>0000</td>
+  <td>ADV_IND</td>
+</tr>
+<tr>
+  <td>0001</td>
+  <td>ADV_DIRECT_IND</td>
+</tr>
+<tr>
+  <td>0010</td>
+  <td>ADV_NONCONN_IND</td>
+</tr>
+<tr>
+  <td>0011</td>
+  <td>SCAN_REQ</td>
+</tr>
+<tr>
+  <td>0100</td>
+  <td>SCAN_RSP</td>
+</tr>
+<tr>
+  <td>0101</td>
+  <td>CONNECT_REQ</td>
+</tr>
+<tr>
+  <td>0110</td>
+  <td>ADV_SCAN_IND</td>
+</tr>
+<tr>
+  <td>0111-1111</td>
+  <td>Reserved</td>
+</tr>
+</tbody></table>
+
+
+
+
+<h4 id="广播信道pdu说明">广播信道PDU说明</h4>
+
+<p>The following advertising channel PDU Types are called advertising PDUs and <br>
+are used in the specified events: <br>
+• ADV_IND: connectable undirected advertising event <br>
+• ADV_DIRECT_IND: connectable directed advertising event <br>
+• ADV_NONCONN_IND: non-connectable undirected advertising event <br>
+• ADV_SCAN_IND: scannable undirected advertising event <br>
+These PDUs are sent by the Link Layer in the Advertising State and received <br>
+by a Link Layer in the Scanning State or Initiating State.</p>
+
+
+
+<h3 id="数据信道pdu">数据信道PDU</h3>
+
+<p>其格式如下：</p>
+
+<table>
+<thead>
+<tr>
+  <th>Header</th>
+  <th>Payload</th>
+  <th>MIC</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>2字节</td>
+  <td>Header中说明的长度</td>
+  <td>4字节</td>
+</tr>
+</tbody></table>
+
+
+<p>数据信道Header格式如下：</p>
+
+<table>
+<thead>
+<tr>
+  <th>LLID</th>
+  <th>NESN</th>
+  <th>SN</th>
+  <th>MD</th>
+  <th>RFU</th>
+  <th>Length</th>
+  <th>RFU</th>
+</tr>
+</thead>
+<tbody><tr>
+  <td>2 bits</td>
+  <td>1 bits</td>
+  <td>1 bit</td>
+  <td>1 bit</td>
+  <td>3 bits</td>
+  <td>5 bits</td>
+  <td>3 bits</td>
+</tr>
+</tbody></table></div></body>
+</html>
