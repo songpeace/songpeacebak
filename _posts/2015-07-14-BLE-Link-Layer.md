@@ -16,7 +16,7 @@ tags: ["蓝牙,BLE"]
 
 
 |Preamble|Access Address|PDU|CRC|
-|-|-|-|-|
+|--|--|--|--|
 |1字节|4字节|2-39字节|3字节|
 
 #### 前导码（Preamble）
