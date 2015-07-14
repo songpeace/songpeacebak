@@ -1,5 +1,10 @@
-<form action="http://www.baidu.com/baidu">
-<input type=text name=word>
-<input type="submit" value="Baidu 搜索">
-<input name=si type=hidden value="/songpeace.github.io">
-</form>
+<script language="javascript">
+function baidusearch () {
+var wd=document.getElementsByName("wd")[0].value;
+var link="http://www.baidu.com/s?si=songpeace.github.io&cl=3&ct=2097152&tn=baidulocal&word="+wd;
+window.open(link); }
+</script>
+<blockquote>
+<p>
+<input type="text" name="wd"/>
+<input type="submit" onclick="javascript :baidusearch()" value="Baidu 搜索" />
