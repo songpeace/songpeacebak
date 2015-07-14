@@ -18,7 +18,7 @@ Preamble|Access Address|PDU|CRC
 -       |-             |-  |
 1字节|4字节|2-39字节|3字节
 
-| Tables        | Are           | Cool  |
+| Preamble        | Access Address           | PDU  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
