@@ -14,6 +14,11 @@ tags: ["蓝牙,BLE"]
 
 ### 空中数据包格式
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 |Preamble|Access Address|PDU|CRC|
 |--|--|--|--|
