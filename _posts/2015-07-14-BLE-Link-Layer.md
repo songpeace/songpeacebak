@@ -14,6 +14,10 @@ tags: ["蓝牙,BLE"]
 
 ### 空中数据包格式
 
+Preamble|Access Address|PDU|CRC
+-|-|-
+1字节|4字节|2-39字节|3字节
+
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| -----:|
 | col 3 is      | right-aligned | $1600 |
