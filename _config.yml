@@ -12,8 +12,8 @@ paginate_path: "page:num"
 # presonal config
 domain: songpeace.github.io
 title: 首页
-description: Android, Cocos2d, Java Web, Linux, reading...
-author: Steven Pan
+description: 
+author: songworld
 email: songworld#126.com
 github: songpeace
 
