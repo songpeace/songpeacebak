@@ -14,22 +14,8 @@ tags: ["蓝牙,BLE"]
 
 ### 空中数据包格式
 
-
 Preamble|Access Address|PDU|CRC
--       |-             |-  |
-1字节|4字节|2-39字节|3字节
-a|b|c|d
-
-
-| Preamble        | Access Address           | PDU  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-
-Preamble|Access Address|PDU|CRC
---|--|--|--
+---|---|---|---
 1字节|4字节|2-39字节|3字节
 
 
@@ -54,18 +40,20 @@ Address）的LSB为1，则前导码为01010101b。否则前导码为10101010b
 其格式如下：
 
 |Header|Payload|
-|-|-|
+|---|---|
 |2字节|Header中说明的长度|
 
 广播信道PDU的Header格式如下：
 
 |PDU Type|RFU|TxAdd|RxAdd|Length|RFU|
-|-|-|-|-|
+|---|---|---|---|---|---|
 |4 bits|2 bits|1 bit|1 bit|6 bits|2 bits|
 
 **PDU Type** 分以下几种类型：
+
+
 |PDU Type<br> b<sub> 3 </sub>b<sub> 2</sub> b <sub>1</sub> b <sub>0</sub>|Packet Name|
-|-||||||
+|---|---|
 |0000|ADV_IND|
 |0001|ADV_DIRECT_IND|
 |0010|ADV_NONCONN_IND|
@@ -89,11 +77,13 @@ by a Link Layer in the Scanning State or Initiating State.
 
 其格式如下：
 
+
 |Header|Payload|MIC|
-|-|-|-|
+|---|---|---|
 |2字节|Header中说明的长度|4字节|
 
 数据信道Header格式如下：
+
 |LLID|NESN|SN|MD|RFU|Length|RFU|
-|-|-|-|-|-|
+|---|---|---|---|---|---|---|
 |2 bits|1 bits|1 bit|1 bit|3 bits|5 bits|3 bits|
