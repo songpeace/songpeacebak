@@ -20,9 +20,12 @@ tags: ["蓝牙,BLE"]
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
+
 |Preamble|Access Address|PDU|CRC|
 |--|--|--|--|
 |1字节|4字节|2-39字节|3字节|
+
+
 
 #### 前导码（Preamble）
 
