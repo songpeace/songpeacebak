@@ -6,6 +6,7 @@ tags: ["蓝牙,BLE"]
 ---
 
 **以下文中所有数据格式为小端模式，即最左侧为LSB，最右侧为MSB**
+
 ### 设备地址DEVICE　ADDRESS
 
 每个设备都有地址，地址长6字节，分为公共地址（ public device address）和随机地址（random device address）两类。设备可以同时拥有这两种类型的地址。
